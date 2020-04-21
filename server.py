@@ -3,17 +3,17 @@ import sys
 
 
 class Server(socketserver.BaseRequestHandler):
-  # handle에서 서버에서 실행될 작업 작성
+    # handle에서 서버에서 실행될 작업 작성
     def handle(self):
-    print('Client is connected: {0}'.format(self.client_address[0]))
-    sock = self.request
+        print('Client is connected: {0}'.format(self.client_address[0]))
+        sock = self.request
 
-    buffer = sock.recv(1024)
-    receivedMessage = str(buffer, encoding='utf-8')
-    print('Received: {0}'.format(received_message))
+        buffer = sock.recv(1024)
+        receivedMessage = str(buffer, encoding='utf-8')
+        print('Received: {0}'.format(receivedMessage))
 
-    sock.send(buffer)
-    sock.close()
+        sock.send(buffer)
+        sock.close()
 
 
 if __name__ == '__main__':
